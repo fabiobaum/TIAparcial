@@ -89,6 +89,8 @@ function registrarNomeEmpresa() {
             statusTransacao.innerHTML = "Transação enviada ao Blockchain Ethereum. Faça a monitoração pelo hash: " + resultado;
         }
     });
+}
+
 function obtemNomeAgente() {
     contratoUsoDeImagem.nomeAgente({from: contaUsuario, gas: 3000000, value: 0}, function (err, resultado) {
         if (err)    {
