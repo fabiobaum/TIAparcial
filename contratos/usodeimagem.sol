@@ -1,22 +1,28 @@
 pragma solidity 0.4.25;
 
-contract UsoDeImagem {
+/**
+@title TermOfInstructionAndAuthorization
+@notice Smart Contract to store the Terms of Instruction and Authorization provided for Tess Law
+@author Fabio Baum
+*/
+
+contract TIA {
 	
     string public nomeEmpresa;
-    address agente;
-    address artista;
+    address representanteEmpresa;
+    address procurador;
 	
-    modifier somenteArtista() {
-        require(msg.sender==artista, "Somente artista pode realizar essa operação");
+    modifier somenterepresentanteEmpresa() {
+        require(msg.sender==representanteEmpresa, "Only the Company`s representatives can perform this operation");
         _;
     }
 
     constructor() public {
-        nomeEmpresa = "Artista SuperPop Ltda";
-        artista = msg.sender;
+        nomeEmpresa = "Company XYZ Inc";
+        companysRepresentative = msg.sender;
     }
 	
-    function definirNomeDaEmpresa(string qualNomeDaEmpresa) public somenteArtista  {
+    function definirNomeDaEmpresa(string qualNomeDaEmpresa) public somenterepresentateEmpresa {
         nomeEmpresa = qualNomeDaEmpresa;
     }
 
